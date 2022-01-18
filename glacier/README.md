@@ -1,7 +1,7 @@
 # Docs
-# https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glacier.html#Glacier.Client.initiate_job
+# [Glacier boto3 initate_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glacier.html#Glacier.Client.initiate_job)
 
-# https://www.madboa.com/blog/2016/09/23/glacier-cli-intro/
+# [AWS Glacier Workflow](https://www.madboa.com/blog/2016/09/23/glacier-cli-intro/)
 
 # get vault info
 ```
