@@ -1,6 +1,0 @@
-{
-    "Type": "archive-retrieval",
-    "ArchiveId": "a3b11n9z0mx9XdJQeNQhr7jrFuKrwEaJuqAk3OPpPWq281o0VvSL7kqRqWe9u4fQpYzELukCgyZQztrVy-6nPIFoLf4YFOYQ21o5Y6WygvvtTz7VDj2iT9jL2yuchvkFhiSQqvOM6g",
-    "Description": "Initial retrieval",
-    "SNSTopic": "arn:aws:sns:us-east-1:164666661898:NotifyMe"
-}

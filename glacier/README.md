@@ -130,12 +130,13 @@ aws --profile default glacier get-job-output \
 
 # archive retrieval command 
 [select_job.json](select_job.json) contains the query and s3 output
+[retrieve_job.json](retrieve_job.json) contains the the job parameters for local retrieval
 *archive-retrieval* type doesn't allow s3 output location so *select* type must be used!
 ```
 aws --profile default glacier initiate-job \
   --account-id - \
   --vault-name test_vault \
-  --job-parameters file://retrive_job.json
+  --job-parameters file://retrieve_job.json
 ```
 # output
 ```
