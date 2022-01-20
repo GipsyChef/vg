@@ -129,7 +129,9 @@ aws --profile default glacier get-job-output \
 }
 ```
 
-# retrieval command
+# archive retrieval command 
+select_job.json contains the query and s3 output
+*archive-retrieval* type doesn't allow s3 output location so *select* type must be used!
 ```
 aws --profile default glacier initiate-job \
   --account-id - \
