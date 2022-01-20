@@ -128,3 +128,18 @@ aws --profile default glacier get-job-output \
 	}]
 }
 ```
+
+# retrieval command
+```
+aws --profile default glacier initiate-job \
+  --account-id - \
+  --vault-name test_vault \
+  --job-parameters file://retrive_job.json
+```
+# output
+```
+{
+    "location": "/164666661898/vaults/test_vault/jobs/mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv",
+    "jobId": "mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv"
+}
+```

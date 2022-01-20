@@ -1,15 +1,6 @@
 {
     "Type": "archive-retrieval",
-    "ArchiveId": "AveGlBWdJIDk8-THelSpu8FFo34KUmg8pVOQFvMxEQzM8MXMC6A4V7XcX3E3_qf7II3nYNuUpsgAhbSNYzbUUDKEmKv6VRwJvQZdP9m33ZpCGhsrMXnAgn05ng2xDvHHGFSRUjFf-g",
-    "Description": "Retrieve SQL dump for audit team",
-    "SNSTopic": "arn:aws:sns:us-west-2:112233445566:glacier-sandbox",
-    "OutputLocation": {
-        "S3": {
-            "BucketName": "tabor-glacier-test",
-            "Prefix": "archive-retrieval-output",
-            "Encryption": {
-                "EncryptionType": "AES256"
-            }
-        }
-    }
+    "ArchiveId": "a3b11n9z0mx9XdJQeNQhr7jrFuKrwEaJuqAk3OPpPWq281o0VvSL7kqRqWe9u4fQpYzELukCgyZQztrVy-6nPIFoLf4YFOYQ21o5Y6WygvvtTz7VDj2iT9jL2yuchvkFhiSQqvOM6g",
+    "Description": "Initial retrieval",
+    "SNSTopic": "arn:aws:sns:us-east-1:164666661898:NotifyMe"
 }
