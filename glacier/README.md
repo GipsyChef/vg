@@ -38,7 +38,6 @@ aws --profile default glacier upload-archive --account-id - --vault-name test_va
 ```
 aws --profile default glacier list-jobs --account-id - --vault-name test_vault
 ```
-
 # output
 ```
 {
@@ -61,7 +60,6 @@ aws --profile default glacier list-jobs --account-id - --vault-name test_vault
 }
 ```
 
-
 # inventory retrieval
 ```
 aws --profile default glacier initiate-job \
@@ -78,6 +76,7 @@ aws --profile default glacier get-job-output \
   --job-id "MgqNB4u-FfSgoEhdASnAR0TEoqcLZsHpGYalCgiGS9zfUEpbrOBNy1a7L0sDT16Wl0z5yWG5Xeq7sSsCS9Hd2A_qWgso" \
   glacier-jobs-out
 ```
+# content of glacier-jobs-out file
 
 ```
 {
@@ -143,5 +142,47 @@ aws --profile default glacier initiate-job \
 {
     "location": "/164666661898/vaults/test_vault/jobs/mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv",
     "jobId": "mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv"
+}
+```
+# sns notification object
+upon job completion an SNS notification with the following object is issued
+```
+{
+	"Action": "ArchiveRetrieval",
+	"ArchiveId": "a3b11n9z0mx9XdJQeNQhr7jrFuKrwEaJuqAk3OPpPWq281o0VvSL7kqRqWe9u4fQpYzELukCgyZQztrVy-6nPIFoLf4YFOYQ21o5Y6WygvvtTz7VDj2iT9jL2yuchvkFhiSQqvOM6g",
+	"ArchiveSHA256TreeHash": "2169e53315bf890a602edfe4798d92351c26bf74d08a2d2dfd1acf49f28ece56",
+	"ArchiveSizeInBytes": 8822861,
+	"Completed": true,
+	"CompletionDate": "2022-01-20T22:47:10.630Z",
+	"CreationDate": "2022-01-20T19:03:07.742Z",
+	"InventoryRetrievalParameters": null,
+	"InventorySizeInBytes": null,
+	"JobDescription": "Initial retrieval",
+	"JobId": "mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv",
+	"RetrievalByteRange": "0-8822860",
+	"SHA256TreeHash": "2169e53315bf890a602edfe4798d92351c26bf74d08a2d2dfd1acf49f28ece56",
+	"SNSTopic": "arn:aws:sns:us-east-1:164666661898:NotifyMe",
+	"StatusCode": "Succeeded",
+	"StatusMessage": "Succeeded",
+	"Tier": "Standard",
+	"VaultARN": "arn:aws:glacier:us-east-1:164666661898:vaults/test_vault"
+}
+```
+
+# get the data bits
+```
+aws --profile default  glacier get-job-output \
+  --account-id - \
+  --vault-name test_vault \
+  --job-id "mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv" \
+  shermanteam.tar
+```
+output
+```
+{
+    "checksum": "2169e53315bf890a602edfe4798d92351c26bf74d08a2d2dfd1acf49f28ece56",
+    "status": 200,
+    "acceptRanges": "bytes",
+    "contentType": "application/octet-stream"
 }
 ```
