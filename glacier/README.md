@@ -170,12 +170,13 @@ upon job completion an SNS notification with the following object is issued
 ```
 
 # get the data bits
+this will save the bits as a local shermanteam.tar.gz file
 ```
 aws --profile default  glacier get-job-output \
   --account-id - \
   --vault-name test_vault \
   --job-id "mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv" \
-  shermanteam.tar
+  shermanteam.tar.gz
 ```
 output
 ```
