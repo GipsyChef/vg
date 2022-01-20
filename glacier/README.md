@@ -171,6 +171,7 @@ upon job completion an SNS notification with the following object is issued
 ```
 
 # get the data bits
+this is only for *archive-retrieval* job type
 this will save the bits as a local shermanteam.tar.gz file
 ```
 aws --profile default  glacier get-job-output \
