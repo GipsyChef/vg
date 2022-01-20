@@ -39,6 +39,29 @@ aws --profile default glacier upload-archive --account-id - --vault-name test_va
 aws --profile default glacier list-jobs --account-id - --vault-name test_vault
 ```
 
+# output
+```
+{
+    "JobList": [
+        {
+            "JobId": "MgqNB4u-FfSgoEhdASnAR0TEoqcLZsHpGYalCgiGS9zfUEpbrOBNy1a7L0sDT16Wl0z5yWG5Xeq7sSsCS9Hd2A_qWgso",
+            "Action": "InventoryRetrieval",
+            "VaultARN": "arn:aws:glacier:us-east-1:164666661898:vaults/test_vault",
+            "CreationDate": "2022-01-20T12:19:46.156Z",
+            "Completed": true,
+            "StatusCode": "Succeeded",
+            "StatusMessage": "Succeeded",
+            "InventorySizeInBytes": 2343,
+            "CompletionDate": "2022-01-20T16:08:39.889Z",
+            "InventoryRetrievalParameters": {
+                "Format": "JSON"
+            }
+        }
+    ]
+}
+```
+
+
 # inventory retrieval
 ```
 aws --profile default glacier initiate-job \
@@ -52,6 +75,56 @@ aws --profile default glacier initiate-job \
 aws --profile default glacier get-job-output \
   --account-id - \
   --vault-name test_vault \
-  --job-id "bbp2xENbArsMfqHHc8prZSKbQRXGlllOkk7NgzM0QpFBD4MKQruocTN5E0xxNcSXOyeOabI2PB0yZyxC6qNPR2qeUIWW" \
+  --job-id "MgqNB4u-FfSgoEhdASnAR0TEoqcLZsHpGYalCgiGS9zfUEpbrOBNy1a7L0sDT16Wl0z5yWG5Xeq7sSsCS9Hd2A_qWgso" \
   glacier-jobs-out
+```
+
+```
+{
+	"VaultARN": "arn:aws:glacier:us-east-1:164666661898:vaults/test_vault",
+	"InventoryDate": "2022-01-19T08:00:42Z",
+	"ArchiveList": [{
+		"ArchiveId": "a3b11n9z0mx9XdJQeNQhr7jrFuKrwEaJuqAk3OPpPWq281o0VvSL7kqRqWe9u4fQpYzELukCgyZQztrVy-6nPIFoLf4YFOYQ21o5Y6WygvvtTz7VDj2iT9jL2yuchvkFhiSQqvOM6g",
+		"ArchiveDescription": "",
+		"CreationDate": "2022-01-18T21:26:59Z",
+		"Size": 8822861,
+		"SHA256TreeHash": "2169e53315bf890a602edfe4798d92351c26bf74d08a2d2dfd1acf49f28ece56"
+	}, {
+		"ArchiveId": "w6n8lyTflyUMA7uH_DW4aerwFVrzDkYLzfwdPLLLWUOjNCweenB2hsfe1reEK3Aa-1d_-TBI4A32NB39hJO427Tm9_OReLXEymNJqiP6__a0SFDP6KFEH_iB6bJJWhp_THr2-vYfOA",
+		"ArchiveDescription": "",
+		"CreationDate": "2022-01-18T21:45:21Z",
+		"Size": 8822861,
+		"SHA256TreeHash": "2169e53315bf890a602edfe4798d92351c26bf74d08a2d2dfd1acf49f28ece56"
+	}, {
+		"ArchiveId": "xI8mAvGJ09R_Nkr4Yyc19Crn5NCOiZiSmmQL5EBbgTJGkw4UhSj7E5Fo2DVRTuDyyZuXyDkcByBrrQh-qACQ-KiLcs0qlGkV_S-Ayf_ucY2qTatWkivBoqrKEhoT4ZSv_P4NNUZHtQ",
+		"ArchiveDescription": "",
+		"CreationDate": "2022-01-18T22:17:07Z",
+		"Size": 14049280,
+		"SHA256TreeHash": "4b8d2ebdb8acae14787acc7aa64a61eacd220d354e92229984fe28cbe3840178"
+	}, {
+		"ArchiveId": "lnrzzBTYEDwcndR7v3fjyVUGOKycWxQ5R9s2SmcdJBu2PpvoeuGuZ6u8ePnc9hzlXv82DaItxJS7tpFVHHF0UqatMzKEY4dKpEBbeItXi45pwHI-DpPjt1meAieBs4jspf546RLxzg",
+		"ArchiveDescription": "",
+		"CreationDate": "2022-01-18T23:03:44Z",
+		"Size": 14049280,
+		"SHA256TreeHash": "4b8d2ebdb8acae14787acc7aa64a61eacd220d354e92229984fe28cbe3840178"
+	}, {
+		"ArchiveId": "_FZmvDpT5kqRtA_QtuOml8jLl35503iDAnHJXjto2DtmlMok0hnv1mtsFyuW6DYI2GBosPbu1PXJ6pnohT30mnGpadtGOtycXHEUJNpPjieQz9v3tLzpxiG6_IS1j0RIFwV1xvTimg",
+		"ArchiveDescription": "",
+		"CreationDate": "2022-01-18T23:05:27Z",
+		"Size": 14049280,
+		"SHA256TreeHash": "4b8d2ebdb8acae14787acc7aa64a61eacd220d354e92229984fe28cbe3840178"
+	}, {
+		"ArchiveId": "2pildduz_OflcWV8pNgNbyMEXC5OIUCE_uIvmigVSPF-Dl8HskSMsJUZ5WhVxVuCIJKhNYQiLDt1_2IGgs49w0DqbWp7BtVkh8UUNRFVzhOQcXYXEcpVUqmic3drIS49eooGREli1A",
+		"ArchiveDescription": "",
+		"CreationDate": "2022-01-18T23:05:35Z",
+		"Size": 14049280,
+		"SHA256TreeHash": "4b8d2ebdb8acae14787acc7aa64a61eacd220d354e92229984fe28cbe3840178"
+	}, {
+		"ArchiveId": "L3fVSalHzxGFvHt7Z1D-gZ9tqrag-5nBLUg7Wcx3GVfZBKGHpjIlZuXYnl4aPyY4mzFD1AdETCV_9F2hTOFRKPZEhEaCJmDWJiVDHL5-kjFBeYMy_bP6LWb03WSAl9IodMvZXqt2GQ",
+		"ArchiveDescription": "",
+		"CreationDate": "2022-01-18T23:05:50Z",
+		"Size": 14049280,
+		"SHA256TreeHash": "4b8d2ebdb8acae14787acc7aa64a61eacd220d354e92229984fe28cbe3840178"
+	}]
+}
 ```

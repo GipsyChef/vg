@@ -1,1 +1,15 @@
-{}
+{
+    "Type": "archive-retrieval",
+    "ArchiveId": "AveGlBWdJIDk8-THelSpu8FFo34KUmg8pVOQFvMxEQzM8MXMC6A4V7XcX3E3_qf7II3nYNuUpsgAhbSNYzbUUDKEmKv6VRwJvQZdP9m33ZpCGhsrMXnAgn05ng2xDvHHGFSRUjFf-g",
+    "Description": "Retrieve SQL dump for audit team",
+    "SNSTopic": "arn:aws:sns:us-west-2:112233445566:glacier-sandbox",
+    "OutputLocation": {
+        "S3": {
+            "BucketName": "tabor-glacier-test",
+            "Prefix": "archive-retrieval-output",
+            "Encryption": {
+                "EncryptionType": "AES256"
+            }
+        }
+    }
+}
