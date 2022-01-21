@@ -10,7 +10,7 @@ aws --profile default glacier describe-vault --account-id - --vault-name test_va
 ```
 
 ## output
-```
+```json
 {
     "VaultARN": "arn:aws:glacier:us-east-1:164666661898:vaults/test_vault",
     "VaultName": "test_vault",
@@ -26,7 +26,7 @@ aws --profile default glacier upload-archive --account-id - --vault-name test_va
 ```
 
 ## output
-```
+```json
 {
     "location": "/164666661898/vaults/test_vault/archives/8Hkbx78mzFwA4rRfGs7Ma7ryeQwGh2yw1TZhqUAWH2qtXlczj5a8WkQEh6o_FUHyESLpbBGrwOMi1ERVw7jnJvCFe5sc8apfOEAYsY2JSzF5nMdHOpZX_qquXx8b-JvVh4nQEJSrew",
     "checksum": "4b8d2ebdb8acae14787acc7aa64a61eacd220d354e92229984fe28cbe3840178",
@@ -40,7 +40,7 @@ aws --profile default glacier upload-archive --account-id - --vault-name test_va
 aws --profile default glacier list-jobs --account-id - --vault-name test_vault
 ```
 ## output
-```
+```json
 {
     "JobList": [
         {
@@ -79,7 +79,7 @@ aws --profile default glacier get-job-output \
 ```
 ## content of glacier-jobs-out file
 
-```
+```json
 {
 	"VaultARN": "arn:aws:glacier:us-east-1:164666661898:vaults/test_vault",
 	"InventoryDate": "2022-01-19T08:00:42Z",
@@ -140,7 +140,7 @@ aws --profile default glacier initiate-job \
   --job-parameters file://retrieve_job.json
 ```
 ## output
-```
+```json
 {
     "location": "/164666661898/vaults/test_vault/jobs/mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv",
     "jobId": "mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv"
@@ -148,7 +148,7 @@ aws --profile default glacier initiate-job \
 ```
 # sns notification object
 upon job completion an SNS notification with the following object is issued
-```
+```json
 {
 	"Action": "ArchiveRetrieval",
 	"ArchiveId": "a3b11n9z0mx9XdJQeNQhr7jrFuKrwEaJuqAk3OPpPWq281o0VvSL7kqRqWe9u4fQpYzELukCgyZQztrVy-6nPIFoLf4YFOYQ21o5Y6WygvvtTz7VDj2iT9jL2yuchvkFhiSQqvOM6g",
@@ -182,7 +182,7 @@ aws --profile default  glacier get-job-output \
   shermanteam.tar.gz
 ```
 ## output
-```
+```json
 {
     "checksum": "2169e53315bf890a602edfe4798d92351c26bf74d08a2d2dfd1acf49f28ece56",
     "status": 200,
@@ -194,7 +194,7 @@ aws --profile default  glacier get-job-output \
 # error handling
 job list output. 
 SNS notification object looks identical to below.
-```
+```json
  {
     "JobId": "H8oZXDgYTCc5hbjVZgSkep7vz0gQVb2reN7TkdCVAHwQb9Tiw5ez6WD3ONd9EL-mAWuY-dBmHPZyiOopnG-nXXM11qVJ",
     "JobDescription": "Initial retrieval",
