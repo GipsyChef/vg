@@ -4,6 +4,24 @@
 - [AWS Glacier Workflow](https://www.madboa.com/blog/2016/09/23/glacier-cli-intro/)
 - [Initiate Job](https://github.com/awsdocs/amazon-glacier-developer-guide/blob/master/doc_source/api-initiate-job-post.md)
 
+# required iam policy
+```json
+{
+	"Version": "2012-10-17",
+	"Statement": [{
+		"Sid": "Stmt1642624281057",
+		"Action": [
+			"glacier:InitiateJob",
+			"glacier:DescribeJob",
+			"glacier:ListJobs",
+			"glacier:GetJobOutput"
+		],
+		"Effect": "Allow",
+		"Resource": "arn:aws:glacier:us-east-1:164666661898:vaults/test_vault"
+	}]
+}
+```
+
 # get vault info
 ```
 aws --profile default glacier describe-vault --account-id - --vault-name test_vault
