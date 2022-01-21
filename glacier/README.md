@@ -39,7 +39,7 @@ aws --profile default glacier upload-archive --account-id - --vault-name test_va
 ```
 aws --profile default glacier list-jobs --account-id - --vault-name test_vault
 ```
-# output
+## output
 ```
 {
     "JobList": [
@@ -69,7 +69,7 @@ aws --profile default glacier initiate-job \
   --job-parameters '{ "Type": "inventory-retrieval" }'
 ```
 
-# get job output
+## get job output
 ```
 aws --profile default glacier get-job-output \
   --account-id - \
@@ -77,7 +77,7 @@ aws --profile default glacier get-job-output \
   --job-id "MgqNB4u-FfSgoEhdASnAR0TEoqcLZsHpGYalCgiGS9zfUEpbrOBNy1a7L0sDT16Wl0z5yWG5Xeq7sSsCS9Hd2A_qWgso" \
   glacier-jobs-out
 ```
-# content of glacier-jobs-out file
+## content of glacier-jobs-out file
 
 ```
 {
@@ -139,7 +139,7 @@ aws --profile default glacier initiate-job \
   --vault-name test_vault \
   --job-parameters file://retrieve_job.json
 ```
-# output
+## output
 ```
 {
     "location": "/164666661898/vaults/test_vault/jobs/mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv",
@@ -181,7 +181,7 @@ aws --profile default  glacier get-job-output \
   --job-id "mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv" \
   shermanteam.tar.gz
 ```
-output
+## output
 ```
 {
     "checksum": "2169e53315bf890a602edfe4798d92351c26bf74d08a2d2dfd1acf49f28ece56",
