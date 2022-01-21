@@ -194,6 +194,7 @@ aws --profile default  glacier get-job-output \
 # error handling
 job list output. 
 SNS notification object looks identical to below.
+*StatusMessage* contains the detailed error description and *JobOutputPath* has the exact error in the object
 ```json
  {
     "JobId": "H8oZXDgYTCc5hbjVZgSkep7vz0gQVb2reN7TkdCVAHwQb9Tiw5ez6WD3ONd9EL-mAWuY-dBmHPZyiOopnG-nXXM11qVJ",
