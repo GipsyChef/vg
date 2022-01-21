@@ -1,7 +1,8 @@
 # Docs
-# [Glacier boto3 initate_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glacier.html#Glacier.Client.initiate_job)
 
-# [AWS Glacier Workflow](https://www.madboa.com/blog/2016/09/23/glacier-cli-intro/)
+- [Glacier boto3 initate_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glacier.html#Glacier.Client.initiate_job)
+- [AWS Glacier Workflow](https://www.madboa.com/blog/2016/09/23/glacier-cli-intro/)
+- [Initiate Job](https://github.com/awsdocs/amazon-glacier-developer-guide/blob/master/doc_source/api-initiate-job-post.md)
 
 # get vault info
 ```
@@ -187,5 +188,35 @@ output
     "status": 200,
     "acceptRanges": "bytes",
     "contentType": "application/octet-stream"
+}
+```
+
+# error handling
+job list output. 
+SNS notification object looks identical to below.
+```
+ {
+    "JobId": "H8oZXDgYTCc5hbjVZgSkep7vz0gQVb2reN7TkdCVAHwQb9Tiw5ez6WD3ONd9EL-mAWuY-dBmHPZyiOopnG-nXXM11qVJ",
+    "JobDescription": "Initial retrieval",
+    "Action": "Select",
+    "ArchiveId": "a3b11n9z0mx9XdJQeNQhr7jrFuKrwEaJuqAk3OPpPWq281o0VvSL7kqRqWe9u4fQpYzELukCgyZQztrVy-6nPIFoLf4YFOYQ21o5Y6WygvvtTz7VDj2iT9jL2yuchvkFhiSQqvOM6g",
+    "VaultARN": "arn:aws:glacier:us-east-1:164666661898:vaults/test_vault",
+    "CreationDate": "2022-01-20T23:27:15.156Z",
+    "Completed": true,
+    "StatusCode": "Failed",
+    "StatusMessage": "USER_EXCEPTION : Glacier Select was unable to complete your request. Please refer to the error output folder at output/H8oZXDgYTCc5hbjVZgSkep7vz0gQVb2reN7TkdCVAHwQb9Tiw5ez6WD3ONd9EL-mAWuY-dBmHPZyiOopnG-nXXM11qVJ/errors for details.",
+    "ArchiveSizeInBytes": 8822861,
+    "SNSTopic": "arn:aws:sns:us-east-1:164666661898:NotifyMe",
+    "CompletionDate": "2022-01-21T03:18:19.837Z",
+    "SHA256TreeHash": "2169e53315bf890a602edfe4798d92351c26bf74d08a2d2dfd1acf49f28ece56",
+    "ArchiveSHA256TreeHash": "2169e53315bf890a602edfe4798d92351c26bf74d08a2d2dfd1acf49f28ece56",
+    "RetrievalByteRange": "0-8822860",
+    "Tier": "Standard",
+    "JobOutputPath": "output/H8oZXDgYTCc5hbjVZgSkep7vz0gQVb2reN7TkdCVAHwQb9Tiw5ez6WD3ONd9EL-mAWuY-dBmHPZyiOopnG-nXXM11qVJ/",
+    "OutputLocation": {
+        "S3": {
+            "BucketName": "tabor-glacier-test"
+        }
+    }
 }
 ```

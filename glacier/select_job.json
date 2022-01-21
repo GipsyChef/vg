@@ -8,12 +8,12 @@
         "Expression": "SELECT * FROM archive",
         "InputSerialization": {
             "csv": {
-                "FileHeaderInfo": "USE"
+                "FileHeaderInfo": "None"
             }
         },
         "OutputSerialization": {
             "csv": {
-                "QuoteFields": "ALWAYS"
+                "QuoteFields": "AsNeeded"
             }
         }
     },
