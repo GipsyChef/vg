@@ -3,6 +3,7 @@
 - [Glacier boto3 initate_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glacier.html#Glacier.Client.initiate_job)
 - [AWS Glacier Workflow](https://www.madboa.com/blog/2016/09/23/glacier-cli-intro/)
 - [Initiate Job](https://github.com/awsdocs/amazon-glacier-developer-guide/blob/master/doc_source/api-initiate-job-post.md)
+- [Amazon S3 Glacier Re:Freezer](https://github.com/awslabs/amazon-s3-glacier-refreezer)
 
 # required iam policy
 ```json
