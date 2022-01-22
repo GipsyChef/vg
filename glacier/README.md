@@ -5,7 +5,7 @@
 - [Initiate Job](https://github.com/awsdocs/amazon-glacier-developer-guide/blob/master/doc_source/api-initiate-job-post.md)
 - [Amazon S3 Glacier Re:Freezer](https://github.com/awslabs/amazon-s3-glacier-refreezer)
 
-# required iam policy
+# required iam policy to operate on glacier
 ```json
 {
 	"Version": "2012-10-17",
