@@ -86,7 +86,7 @@ aws --profile default glacier list-jobs --account-id - --vault-name test_vault
 aws --profile default glacier initiate-job \
   --account-id - \
   --vault test_vault \
-  --job-parameters '{ "Type": "inventory-retrieval" }'
+  --job-parameters '{ "Type": "inventory-retrieval", "SNSTopic": "arn:aws:sns:us-east-1:164666661898:NotifyMe" }'
 ```
 
 ## get job output
