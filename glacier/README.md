@@ -5,6 +5,8 @@
 - [Initiate Job](https://github.com/awsdocs/amazon-glacier-developer-guide/blob/master/doc_source/api-initiate-job-post.md)
 - [Amazon S3 Glacier Re:Freezer Source](https://github.com/awslabs/amazon-s3-glacier-refreezer)
 - [Re:Freezer Implementation Guide](https://docs.aws.amazon.com/solutions/latest/amazon-s3-glacier-refreezer/overview.html)
+- [Working with archives](https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html)
+- [Querying an archive](https://docs.aws.amazon.com/amazonglacier/latest/dev/glacier-select.html)
 
 # required iam policy to operate on glacier
 ```json
