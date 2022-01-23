@@ -152,9 +152,9 @@ aws --profile default glacier get-job-output \
 ```
 
 # archive retrieval command 
-[select_job.json](select_job.json) contains the query and s3 output
-[retrieve_job.json](retrieve_job.json) contains the the job parameters for local retrieval
-*archive-retrieval* type doesn't allow s3 output location so *select* type must be used!
+[select_job.json](select_job.json) contains the query and s3 output it's used to query archives.
+[retrieve_job.json](retrieve_job.json) contains the the job parameters for local archive retrieval.
+**archive-retrieval** type doesn't allow s3 output location so *select* type must be used!
 ```
 aws --profile default glacier initiate-job \
   --account-id - \
@@ -169,7 +169,7 @@ aws --profile default glacier initiate-job \
 }
 ```
 # sns notification object
-upon job completion an SNS notification with the following object is issued
+upon job completion an SNS notification with the following object is issued:
 ```json
 {
 	"Action": "ArchiveRetrieval",
@@ -194,8 +194,8 @@ upon job completion an SNS notification with the following object is issued
 ```
 
 # get the data bits
-this is only for *archive-retrieval* job type.
-this will save the bits as a local shermanteam.tar.gz file
+this is only for **archive-retrieval** job type.
+this will save the bits as a local *shermanteam.tar.gz* file
 ```
 aws --profile default  glacier get-job-output \
   --account-id - \
