@@ -150,9 +150,8 @@ aws --profile default glacier get-job-output \
 }
 ```
 
-# archive retrieval command 
+# archive retrieval command using **archive-retrieval** type
 [retrieve_job.json](retrieve_job.json) contains the the job parameters for local archive retrieval.
-[select_job.json](select_job.json) contains the query and s3 output it's used to query archives.
 **archive-retrieval** type doesn't allow s3 output location!
 ```
 aws --profile default glacier initiate-job \
@@ -167,6 +166,7 @@ aws --profile default glacier initiate-job \
     "jobId": "mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv"
 }
 ```
+[select_job.json](select_job.json) is used to query archives using **select** type.
 
 # sns notification object
 upon job completion an SNS notification with the following object is issued:
