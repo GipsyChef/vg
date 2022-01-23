@@ -30,7 +30,6 @@
 ```
 aws --profile default glacier describe-vault --account-id - --vault-name test_vault
 ```
-
 ## output
 ```json
 {
@@ -97,10 +96,10 @@ aws --profile default glacier get-job-output \
   --account-id - \
   --vault-name test_vault \
   --job-id "MgqNB4u-FfSgoEhdASnAR0TEoqcLZsHpGYalCgiGS9zfUEpbrOBNy1a7L0sDT16Wl0z5yWG5Xeq7sSsCS9Hd2A_qWgso" \
-  glacier-jobs-out
+  glacier-jobs-out.json
 ```
-## content of glacier-jobs-out file
 
+## content of *glacier-jobs-out.json* file
 ```json
 {
 	"VaultARN": "arn:aws:glacier:us-east-1:164666661898:vaults/test_vault",
@@ -152,9 +151,9 @@ aws --profile default glacier get-job-output \
 ```
 
 # archive retrieval command 
-[select_job.json](select_job.json) contains the query and s3 output it's used to query archives.
 [retrieve_job.json](retrieve_job.json) contains the the job parameters for local archive retrieval.
-**archive-retrieval** type doesn't allow s3 output location so *select* type must be used!
+[select_job.json](select_job.json) contains the query and s3 output it's used to query archives.
+**archive-retrieval** type doesn't allow s3 output location!
 ```
 aws --profile default glacier initiate-job \
   --account-id - \
@@ -168,6 +167,7 @@ aws --profile default glacier initiate-job \
     "jobId": "mTuA9TGGyjy0HdC2DC6zmEfmCURFxewUqy9azAT7FEDYWVueEdqiKmOjwP6Z24VB-KDaT-OjLc2WZSP3n73FOD2K4Tbv"
 }
 ```
+
 # sns notification object
 upon job completion an SNS notification with the following object is issued:
 ```json
@@ -214,10 +214,9 @@ aws --profile default  glacier get-job-output \
 ```
 
 # error handling
-job list output. 
-SNS notification object looks identical to below.
-*StatusMessage* contains the detailed error description and *JobOutputPath* has the exact error in the object
-
+job list output.
+SNS notification object looks identical to the object below.
+**StatusMessage** contains the detailed error description and **JobOutputPath** has the exact error in the object
 ```json
  {
     "JobId": "H8oZXDgYTCc5hbjVZgSkep7vz0gQVb2reN7TkdCVAHwQb9Tiw5ez6WD3ONd9EL-mAWuY-dBmHPZyiOopnG-nXXM11qVJ",
@@ -244,7 +243,8 @@ SNS notification object looks identical to below.
     }
 }
 ```
-An exact error inside the object referenced in *JobOutputPath* might look like this:
+
+An exact error inside the object referenced in **JobOutputPath** might look like this:
 ```
 RecordBuilderException.CSVParsingExceptionContext(line=32, column=0, charIndex=7323)
 ```
